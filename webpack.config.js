@@ -15,6 +15,11 @@ module.exports={
     module: {},
     //配置插件：根据功能需要配置不同的插件
     plugins: [],
-    //配置开发服务功能 ？
-    devServer: {}
+    //配置开发服务功能
+    devServer: {
+        contentBase: path.resolve(__dirname, 'dist'),   //配置基本目录结构，用于找到程序打包地址
+        host: "localhost",                               //配置服务器的IP地址，或者用localhost
+        compress: true,                                  //配置是否开启服务端压缩
+        port: 1717                                        //配置端口号
+    }
 }
