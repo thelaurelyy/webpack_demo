@@ -66,19 +66,19 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/entery.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/entry.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/entery.js":
-/*!***********************!*\
-  !*** ./src/entery.js ***!
-  \***********************/
+/***/ "./src/entry.js":
+/*!**********************!*\
+  !*** ./src/entry.js ***!
+  \**********************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("document.getElementById('title').innerHTML = 'Hello yy !';\n\n//# sourceURL=webpack:///./src/entery.js?");
+eval("document.getElementById('title').innerHTML = 'Hello yy !';\r\n\r\n\r\n/*\r\n\r\nwebpack src/entry.js --output  dist/bundle.js --mode development\r\n\r\n*/\r\n\n\n//# sourceURL=webpack:///./src/entry.js?");
 
 /***/ })
 
