@@ -1,4 +1,4 @@
-document.getElementById('title').innerHTML = 'Hello yuanyue !';
+document.getElementById('title').innerHTML = 'Hello yy !';
 
 
 /*

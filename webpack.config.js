@@ -18,7 +18,7 @@ module.exports={
     //配置开发服务功能
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),   //配置基本目录结构，用于找到程序打包地址
-        host: "localhost",                               //配置服务器的IP地址，或者用localhost
+        host: "172.17.1.110",                               //配置服务器的IP地址，或者用localhost
         compress: true,                                  //配置是否开启服务端压缩
         port: 1717                                        //配置端口号
     }

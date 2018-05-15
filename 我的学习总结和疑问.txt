@@ -1,0 +1,6 @@
+
+第四节 服务和热更新
+
+（1）npm run server 开启的后台服务和live-server开启的后台服务有什么区别？？
+
+（2）num run server 中的“server”指代的是在package.json  --> scripts 中设置的别名吗 ？
