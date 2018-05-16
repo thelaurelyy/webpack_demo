@@ -12,7 +12,12 @@ module.exports={
         filename: "[name].js"    //打包的文件名称
     },
     //配置模块：主要是解析CSS，图片转换压缩功能等
-    module: {},
+    module: {
+        rules: [{
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
+        }]
+    },
     //配置插件：根据功能需要配置不同的插件
     plugins: [],
     //配置开发服务功能
