@@ -1,4 +1,6 @@
 const path = require('path');
+const uglify = require('uglifyjs-webpack-plugin');   //JS压缩插件
+const htmlPlugin = require('html-webpack-plugin');   //html打包工具
 
 module.exports={
     //入口文件的配置项
@@ -15,11 +17,20 @@ module.exports={
     module: {
         rules: [{
             test: /\.css$/,
-            use: ['style-loader', 'css-loader']
+            use: ['style-loader','css-loader']
         }]
     },
     //配置插件：根据功能需要配置不同的插件
-    plugins: [],
+    plugins: [
+        new uglify(),
+        new htmlPlugin({
+            minify: {
+                removeAttributeQuotes: true
+            },
+            hash: true,
+            template: "./src/index.html"
+        })
+    ],
     //配置开发服务功能
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),   //配置基本目录结构，用于找到程序打包地址
