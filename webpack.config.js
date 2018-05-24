@@ -2,7 +2,7 @@ const path = require('path');
 const uglify = require('uglifyjs-webpack-plugin');   //JS压缩插件
 const htmlPlugin = require('html-webpack-plugin');   //html打包工具
 
-module.exports={
+module.exports = {
     //入口文件的配置项
     entry: {
         entry: "./src/entry.js",
@@ -10,22 +10,22 @@ module.exports={
     },
     //出口文件的配置项
     output: {
-        path: path.resolve(__dirname, 'dist'),  //获取项目的绝对路径
-        filename: "[name].js"    //打包的文件名称
+        path: path.resolve(__dirname, 'dist'),  //输出的路径，用了node语法
+        filename: "[name].js",    //打包的文件名称
     },
     //配置模块：主要是解析CSS，图片转换压缩功能等
     module: {
         rules: [
             {
-                test: /\.css$/,
-                use: ['style-loader','css-loader']
+                  test: /\.css$/,
+                  use: ['style-loader','css-loader']
             },
             {
-                test: /\.(jpg|png|gif)$/,
+                test: /\.(jpg|png|gif)/,
                 use: [{
                     loader: 'url-loader',
                     options: {
-                        limit: 500000      //小于500000B的文件打成Base64的格式，写入JS
+                        limit: 500000        //小于500000B的文件打成Base64的格式，写入JS
                     }
                 }]
             }
@@ -40,7 +40,7 @@ module.exports={
             },
             hash: true,
             template: "./src/index.html"
-        })
+        }),
     ],
     //配置开发服务功能
     devServer: {
