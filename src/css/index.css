@@ -2,3 +2,9 @@ body{
     background-color: lightblue;
     color: white;
 }
+#tupian {
+    background: url('../images/fengjing.jpg') no-repeat center;
+    background-size: contain;
+    width: 500px;
+    height: 500px;
+}

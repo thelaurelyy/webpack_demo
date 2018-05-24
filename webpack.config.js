@@ -15,10 +15,21 @@ module.exports={
     },
     //配置模块：主要是解析CSS，图片转换压缩功能等
     module: {
-        rules: [{
-            test: /\.css$/,
-            use: ['style-loader','css-loader']
-        }]
+        rules: [
+            {
+                test: /\.css$/,
+                use: ['style-loader','css-loader']
+            },
+            {
+                test: /\.(jpg|png|gif)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 500000      //小于500000B的文件打成Base64的格式，写入JS
+                    }
+                }]
+            }
+        ]
     },
     //配置插件：根据功能需要配置不同的插件
     plugins: [
