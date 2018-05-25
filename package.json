@@ -4,7 +4,8 @@
   "description": "webpack3.X学习demo",
   "main": "index.js",
   "scripts": {
-    "server": "webpack-dev-server"
+    "server": "webpack-dev-server --open",
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
