@@ -1,7 +1,7 @@
 const path = require('path');
 const uglify = require('uglifyjs-webpack-plugin');   //JS压缩插件
 const htmlPlugin = require('html-webpack-plugin');   //html打包工具
-const extractTextPlugin = require('extract-text-webpack-plugin');     //css分离打包工具
+const extractTextPlugin = require('extract-text-webpack-plugin');   //css 分离打包工具
 
 var website = {
     publicPath: "http://172.17.1.110:1717/"
@@ -51,7 +51,7 @@ module.exports = {
             hash: true,
             template: "./src/index.html"
         }),
-        new extractTextPlugin("/css/index.css"),
+        new extractTextPlugin("/css/index.css")     //这里是存放打包后css文件的地址
     ],
     //配置开发服务功能
     devServer: {
