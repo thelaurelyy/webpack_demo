@@ -1,6 +1,11 @@
 const path = require('path');
 const uglify = require('uglifyjs-webpack-plugin');   //JS压缩插件
 const htmlPlugin = require('html-webpack-plugin');   //html打包工具
+const extractTextPlugin = require('extract-text-webpack-plugin');     //css分离打包工具
+
+var website = {
+    publicPath: "http://172.17.1.110:1717/"
+}
 
 module.exports = {
     //入口文件的配置项
@@ -12,20 +17,25 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),  //输出的路径，用了node语法
         filename: "[name].js",    //打包的文件名称
+        publicPath: website.publicPath
     },
     //配置模块：主要是解析CSS，图片转换压缩功能等
     module: {
         rules: [
             {
                   test: /\.css$/,
-                  use: ['style-loader','css-loader']
+                  /*use: ['style-loader','css-loader']*/
+                  use: extractTextPlugin.extract({
+                      fallback: "style-loader",
+                      use: "css-loader"
+                  })
             },
             {
                 test: /\.(jpg|png|gif)/,
                 use: [{
                     loader: 'url-loader',
                     options: {
-                        limit: 500000        //小于500000B的文件打成Base64的格式，写入JS
+                        limit: 5000        //小于500000B的文件打成Base64的格式，写入JS
                     }
                 }]
             }
@@ -41,6 +51,7 @@ module.exports = {
             hash: true,
             template: "./src/index.html"
         }),
+        new extractTextPlugin("/css/index.css"),
     ],
     //配置开发服务功能
     devServer: {
@@ -49,4 +60,4 @@ module.exports = {
         compress: true,                                  //配置是否开启服务端压缩
         port: 1717                                        //配置端口号
     }
-}
+};

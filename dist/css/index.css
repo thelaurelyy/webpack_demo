@@ -1,0 +1,10 @@
+body{
+    background-color: lightblue;
+    color: white;
+}
+#tupian {
+    background: url(http://172.17.1.110:1717/3d1e45d39b231e2d83ca5a2a511ac435.jpg) no-repeat center;
+    background-size: contain;
+    width: 658px;
+    height: 1170px;
+}
