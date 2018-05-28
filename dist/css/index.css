@@ -3,8 +3,15 @@ body{
     color: white;
 }
 #tupian {
-    background: url(http://172.17.1.110:1717//images/3d1e45d39b231e2d83ca5a2a511ac435.jpg) no-repeat center;
+    background: url(http://172.17.1.110:1717/images/3d1e45d39b231e2d83ca5a2a511ac435.jpg) no-repeat center;
     background-size: contain;
-    width: 658px;
-    height: 1170px;
+    width: 300px;
+    height: 500px;
+    overflow: hidden;
+}
+.outline {
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-position: center;
 }

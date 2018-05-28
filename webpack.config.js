@@ -36,9 +36,13 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 5000,        //小于500000B的文件打成Base64的格式，写入JS
-                        outputPath: "/images/"
+                        outputPath: "images/"
                     }
                 }]
+            },
+            {
+                test: /\.(htm|html)$/i,
+                use: ['html-withimg-loader']
             }
         ]
     },
@@ -52,7 +56,7 @@ module.exports = {
             hash: true,
             template: "./src/index.html"
         }),
-        new extractTextPlugin("/css/index.css")     //这里是存放打包后css文件的地址
+        new extractTextPlugin("css/index.css")     //这里是存放打包后css文件的地址
     ],
     //配置开发服务功能
     devServer: {
