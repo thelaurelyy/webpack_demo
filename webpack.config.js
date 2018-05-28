@@ -25,7 +25,7 @@ module.exports = {
             {
                   test: /\.css$/,
                   /*use: ['style-loader','css-loader']*/
-                  use: extractTextPlugin.extract({
+                  use: extractTextPlugin.extract({       //css分离打包
                       fallback: "style-loader",
                       use: "css-loader"
                   })
@@ -35,14 +35,22 @@ module.exports = {
                 use: [{
                     loader: 'url-loader',
                     options: {
-                        limit: 5000,        //小于500000B的文件打成Base64的格式，写入JS
+                        limit: 5000,            //小于500000B的文件打成Base64的格式，写入JS
                         outputPath: "images/"
                     }
                 }]
             },
             {
-                test: /\.(htm|html)$/i,
+                test: /\.(htm|html)$/i,         //html内img标签元素打包
                 use: ['html-withimg-loader']
+            },
+            {
+                test: /\.less$/i,
+                use: [
+                    { loader: "style-loader"},      // creates style nodes from JS strings
+                    { loader: "css-loader"},        // translates CSS into CommonJS
+                    { loader: "less-loader"}        // compiles Less to CSS
+                ]
             }
         ]
     },
