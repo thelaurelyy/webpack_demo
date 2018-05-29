@@ -1,17 +1,46 @@
-body{
-    background-color: lightblue;
-    color: white;
+#test_less {
+  width: 300px;
+  height: 300px;
+  background-color: #000;
 }
+
+#test_sass {
+  width: 100%;
+  height: 30px;
+  background-color: #fff;
+}
+
+body {
+  background-color: lightblue;
+  color: white;
+}
+
 #tupian {
-    background: url(http://172.17.1.110:1717/images/3d1e45d39b231e2d83ca5a2a511ac435.jpg) no-repeat center;
-    background-size: contain;
-    width: 300px;
-    height: 500px;
-    overflow: hidden;
+  background: url(http://172.17.1.110:1717/images/3d1e45d39b231e2d83ca5a2a511ac435.jpg) no-repeat center;
+  background-size: contain;
+  width: 300px;
+  height: 500px;
+  overflow: hidden;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, .25);
 }
+
 .outline {
-    width: 200px;
-    height: 200px;
-    background-size: contain;
-    background-position: center;
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+  background-position: center;
 }
+
+#title {
+  -webkit-transform: rotate(25deg);
+  transform: rotate(25deg);
+}
+
+/*
+-webkit-transform
+     -o-transform     opera 浏览器
+    -ms-transform     ie 浏览器
+   -moz-transform
+*/

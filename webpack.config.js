@@ -3,6 +3,9 @@ const uglify = require('uglifyjs-webpack-plugin');   //JS压缩插件
 const htmlPlugin = require('html-webpack-plugin');   //html打包工具
 const extractTextPlugin = require('extract-text-webpack-plugin');   //css 分离打包工具
 
+const glob = require('glob');         //node 的glob 对象，用于同步检测html模板
+const purifyCSSPlugin = require('purifycss-webpack');   //消除未使用的css
+
 var website = {
     publicPath: "http://172.17.1.110:1717/"
 }
@@ -27,7 +30,10 @@ module.exports = {
                   /*use: ['style-loader','css-loader']*/
                   use: extractTextPlugin.extract({       //css分离打包
                       fallback: "style-loader",
-                      use: "css-loader"
+                      use: [
+                          { loader: "css-loader", options: { importLoaders: 1}},
+                          "postcss-loader"
+                      ]
                   })
             },
             {
@@ -46,11 +52,25 @@ module.exports = {
             },
             {
                 test: /\.less$/i,
-                use: [
+                /*use: [
                     { loader: "style-loader"},      // creates style nodes from JS strings
                     { loader: "css-loader"},        // translates CSS into CommonJS
                     { loader: "less-loader"}        // compiles Less to CSS
-                ]
+                ]*/
+                use: extractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: ["css-loader", "less-loader"]
+                })
+                // use: [{ loader: "css-loader"}, {loader: "less-loader"}]
+                // 注意： 这里引用的三个loader的顺序是固定的，不可打乱！！
+            },
+            {
+                test: /\.scss$/i,
+                /*use: ["style-loader", "css-loader", "sass-loader"]*/
+                use: extractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: ["css-loader", "sass-loader"]
+                })
             }
         ]
     },
@@ -64,7 +84,12 @@ module.exports = {
             hash: true,
             template: "./src/index.html"
         }),
-        new extractTextPlugin("css/index.css")     //这里是存放打包后css文件的地址
+        new extractTextPlugin("css/index.css"),     //这里是存放打包后css文件的地址
+        new purifyCSSPlugin({
+            // Give paths to parse for rules. These should be absolute!
+            paths: glob.sync(path.join(__dirname, 'src/*.html'))
+            //purifycss-webpack  插件必须配合 extract-text-webpack-plugin 插件使用
+        })
     ],
     //配置开发服务功能
     devServer: {
