@@ -5,7 +5,14 @@
 
 （2）num run server 中的“server”指代的是在package.json  --> scripts 中设置的别名吗 ？
 
+
+第九节 css分离打包
+
 （3）图片可以通过 url-loader中的outputPath设置大图片打包路径，
 	 样式可以通过 new extractTextPlugin("/css/index.css")进行css分离打包到指定路径
 	 
 	 那么 js 文件怎样打包到指定路径 ？
+	 
+	 
+第十五节 babel插件的使用
+（4）js中使用了let 关键字，感觉使用babel插件前后解析的js并无不同，这是为什么呢？

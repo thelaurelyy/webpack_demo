@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a35830c-9cd8-458e-9f37-1e65fad46899" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/css/index.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entry.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/entry2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/images/3d1e45d39b231e2d83ca5a2a511ac435.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/images/b73eece56ba6ca479954100012189061.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/index.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/babel-core/package.json" afterPath="$PROJECT_DIR$/node_modules/babel-core/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/babel-preset-es2015/package.json" afterPath="$PROJECT_DIR$/node_modules/babel-preset-es2015/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/css/index.css" afterPath="$PROJECT_DIR$/src/css/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entry.js" afterPath="$PROJECT_DIR$/src/entry.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.js" afterPath="$PROJECT_DIR$/webpack.config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/我的学习总结和疑问.txt" afterPath="$PROJECT_DIR$/我的学习总结和疑问.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -68,8 +56,8 @@
       <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="676">
-              <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+            <state relative-caret-position="754">
+              <caret line="35" column="2" lean-forward="true" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -379,12 +367,12 @@
       <updated>1526005677815</updated>
       <workItem from="1526005679607" duration="8174000" />
       <workItem from="1526355388398" duration="37326000" />
-      <workItem from="1526987257824" duration="55545000" />
+      <workItem from="1526987257824" duration="55874000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101045000" />
+    <option name="totallyTimeSpent" value="101374000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -674,8 +662,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+        <state relative-caret-position="754">
+          <caret line="35" column="2" lean-forward="true" selection-start-line="35" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
           <folding />
         </state>
       </provider>
