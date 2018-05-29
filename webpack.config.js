@@ -71,6 +71,16 @@ module.exports = {
                     fallback: "style-loader",
                     use: ["css-loader", "sass-loader"]
                 })
+            },
+            {
+                test: /\.(jsx|js)$/,
+                use: [{
+                    loader: "babel-loader",
+                    options: {
+                        presets: ['es2015', 'react']
+                    }
+                }],
+                exclude: /node_modules/
             }
         ]
     },
