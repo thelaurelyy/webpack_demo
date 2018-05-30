@@ -6,9 +6,17 @@ const extractTextPlugin = require('extract-text-webpack-plugin');   //css 分离
 const glob = require('glob');         //node 的glob 对象，用于同步检测html模板
 const purifyCSSPlugin = require('purifycss-webpack');   //消除未使用的css
 
-var website = {
-    publicPath: "http://172.17.1.110:1717/"
+console.log('------------------------->'+encodeURIComponent(process.env.type));
+if(process.env.type == "build"){
+    var website = {
+        publicPath: "http://jspang.com:1717/"
+    }
+}else{
+    var website = {
+        publicPath: "http://172.17.1.110:1717/"
+    }
 }
+
 
 module.exports = {
     /*devtool: "source-map",    //打包后如何调试     */
