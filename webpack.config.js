@@ -11,6 +11,7 @@ var website = {
 }
 
 module.exports = {
+    /*devtool: "source-map",    //打包后如何调试     */
     //入口文件的配置项
     entry: {
         entry: "./src/entry.js",
