@@ -74,16 +74,16 @@ module.exports = {
             },
             {
                 test: /\.(jsx|js)$/,
-                use: [{
+                use: {
                     loader: "babel-loader",
-                    options: {
-                        presets: ['es2015', 'react']
-                    }
-                }],
+                    /*options: {     //配置到.babelrc文件中
+                        presets: ['env', 'react']
+                    }*/
+                },
                 exclude: /node_modules/
             }
         ]
-    },
+},
     //配置插件：根据功能需要配置不同的插件
     plugins: [
         new uglify(),
