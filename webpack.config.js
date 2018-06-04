@@ -5,6 +5,7 @@ const extractTextPlugin = require('extract-text-webpack-plugin');   //css 分离
 const glob = require('glob');         //node 的glob 对象，用于同步检测html模板
 const purifyCSSPlugin = require('purifycss-webpack');   //消除未使用的css
 const entry = require('./webpack_config/entry_webpack.js');        //js模块化引入
+const webpack = require('webpack');
 
 console.log('------------------------->'+encodeURIComponent(process.env.type));
 if(process.env.type == "build"){
@@ -105,6 +106,9 @@ module.exports = {
             // Give paths to parse for rules. These should be absolute!
             paths: glob.sync(path.join(__dirname, 'src/*.html'))
             //purifycss-webpack  插件必须配合 extract-text-webpack-plugin 插件使用
+        }),
+        new webpack.ProvidePlugin({
+            $: "jquery"
         })
     ],
     //配置开发服务功能
