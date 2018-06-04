@@ -2,9 +2,9 @@ const path = require('path');
 const uglify = require('uglifyjs-webpack-plugin');   //JS压缩插件
 const htmlPlugin = require('html-webpack-plugin');   //html打包工具
 const extractTextPlugin = require('extract-text-webpack-plugin');   //css 分离打包工具
-
 const glob = require('glob');         //node 的glob 对象，用于同步检测html模板
 const purifyCSSPlugin = require('purifycss-webpack');   //消除未使用的css
+const entry = require('./webpack_config/entry_webpack.js');        //js模块化引入
 
 console.log('------------------------->'+encodeURIComponent(process.env.type));
 if(process.env.type == "build"){
@@ -21,10 +21,7 @@ if(process.env.type == "build"){
 module.exports = {
     /*devtool: "source-map",    //打包后如何调试     */
     //入口文件的配置项
-    entry: {
-        entry: "./src/entry.js",
-        entry2: "./src/entry2.js"
-    },
+    entry: entry.path,
     //出口文件的配置项
     output: {
         path: path.resolve(__dirname, 'dist'),  //输出的路径，用了node语法
