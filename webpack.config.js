@@ -107,9 +107,10 @@ module.exports = {
             paths: glob.sync(path.join(__dirname, 'src/*.html'))
             //purifycss-webpack  插件必须配合 extract-text-webpack-plugin 插件使用
         }),
-        new webpack.ProvidePlugin({
+        new webpack.ProvidePlugin({     //引用第三方类库
             $: "jquery"
-        })
+        }),
+        new webpack.BannerPlugin('add by yy 2018年6月7日10:58:52')
     ],
     //配置开发服务功能
     devServer: {
@@ -117,5 +118,10 @@ module.exports = {
         host: "172.17.1.110",                               //配置服务器的IP地址，或者用localhost
         compress: true,                                  //配置是否开启服务端压缩
         port: 1717                                        //配置端口号
+    },
+    watchOptions: {
+        poll: 1000,         //检测修改的时间，以毫秒为单位
+        aggregateTimeout: 500,  //防止重复保存而发生重复编译的错误，这里的设置是指：半秒内重复保存，不进行打包操作
+        ignored: /node_modiles/     //不监听的目录
     }
 };
