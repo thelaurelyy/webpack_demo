@@ -110,7 +110,12 @@ module.exports = {
         new webpack.ProvidePlugin({     //引用第三方类库
             $: "jquery"
         }),
-        new webpack.BannerPlugin('add by yy 2018年6月7日10:58:52')
+        new webpack.BannerPlugin('add by yy 2018年6月7日10:58:52'),
+        /*new webpack.optimize.CommonsChunkPlugin({
+            name: 'jquery',
+            filename: "assets/js/jquery.min.js",
+            minChunks: 2
+        })*/
     ],
     //配置开发服务功能
     devServer: {
@@ -122,6 +127,6 @@ module.exports = {
     watchOptions: {
         poll: 1000,         //检测修改的时间，以毫秒为单位
         aggregateTimeout: 500,  //防止重复保存而发生重复编译的错误，这里的设置是指：半秒内重复保存，不进行打包操作
-        ignored: /node_modiles/     //不监听的目录
+        ignored: /node_modules/     //不监听的目录
     }
 };
