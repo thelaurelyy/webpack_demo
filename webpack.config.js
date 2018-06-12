@@ -108,15 +108,39 @@ module.exports = {
             //purifycss-webpack  插件必须配合 extract-text-webpack-plugin 插件使用
         }),
         new webpack.ProvidePlugin({     //引用第三方类库
-            $: "jquery"
+            $: "jquery",
         }),
         new webpack.BannerPlugin('add by yy 2018年6月7日10:58:52'),
-        /*new webpack.optimize.CommonsChunkPlugin({
-            name: 'jquery',
-            filename: "assets/js/jquery.min.js",
-            minChunks: 2
+        /*new webpack.optimize.CommonsChunkPlugin({        //旧版本的方法，现已不适用
+            name: 'jquery',                         //name对应入口文件中的名字，我们起的是jQuery
+            filename: "assets/js/jquery.min.js",    //把文件打包到哪里，是一个路径
+            minChunks: 2                            //最小打包的文件模块数，这里直接写2就好
         })*/
     ],
+    /*optimization: {
+        splitChunks: {
+            chunks: "initial",         // 必须三选一： "initial" | "all"(默认就是all) | "async"
+            minSize: 0,                // 最小尺寸，默认0
+            minChunks: 1,              // 最小 chunk ，默认1
+            maxAsyncRequests: 1,       // 最大异步请求数， 默认1
+            maxInitialRequests: 1,    // 最大初始化请求书，默认1
+            name: () => {},              // 名称，此选项课接收 function
+            cacheGroups: {                 // 这里开始设置缓存的 chunks
+                priority: "0",                // 缓存组优先级 false | object |
+                vendor: {                   // key 为entry中定义的 入口名称
+                    chunks: "initial",        // 必须三选一： "initial" | "all" | "async"(默认就是异步)
+                    test: /jquery|vue/,     // 正则规则验证，如果符合就提取 chunk
+                    name: "vendor",           // 要缓存的 分隔出来的 chunk 名称
+                    minSize: 0,
+                    minChunks: 1,
+                    enforce: true,
+                    maxAsyncRequests: 1,       // 最大异步请求数， 默认1
+                    maxInitialRequests: 1,    // 最大初始化请求书，默认1
+                    reuseExistingChunk: true   // 可设置是否重用该chunk（查看源码没有发现默认值）
+                }
+            }
+        }
+    },*/
     //配置开发服务功能
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),   //配置基本目录结构，用于找到程序打包地址
