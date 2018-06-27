@@ -6,6 +6,7 @@ const glob = require('glob');         //node 的glob 对象，用于同步检测
 const purifyCSSPlugin = require('purifycss-webpack');   //消除未使用的css
 const entry = require('./webpack_config/entry_webpack.js');        //js模块化引入
 const webpack = require('webpack');
+const copyWebpackPlugin = require('copy-webpack-plugin');
 
 console.log('------------------------->'+encodeURIComponent(process.env.type));
 if(process.env.type == "build"){
@@ -14,7 +15,7 @@ if(process.env.type == "build"){
     }
 }else{
     var website = {
-        publicPath: "http://172.17.1.110:1717/"
+        publicPath: "http://10.150.130.65:1717/"
     }
 }
 
@@ -116,6 +117,10 @@ module.exports = {
             filename: "assets/js/jquery.min.js",    //把文件打包到哪里，是一个路径
             minChunks: 2                            //最小打包的文件模块数，这里直接写2就好
         })*/
+        new copyWebpackPlugin([{       //   ！！！注意：这里的数据先用数组包裹，然后才是对象
+            from: __dirname+ '/src/public',
+            to: './public'              //   由于出口配置了目录为dist，因此只需要编写后面的地址即可
+        }])
     ],
     /*optimization: {
         splitChunks: {
@@ -144,7 +149,7 @@ module.exports = {
     //配置开发服务功能
     devServer: {
         contentBase: path.resolve(__dirname, 'dist'),   //配置基本目录结构，用于找到程序打包地址
-        host: "172.17.1.110",                               //配置服务器的IP地址，或者用localhost
+        host: "10.150.130.65",                               //配置服务器的IP地址，或者用localhost
         compress: true,                                  //配置是否开启服务端压缩
         port: 1717                                        //配置端口号
     },
