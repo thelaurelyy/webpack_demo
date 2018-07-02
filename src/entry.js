@@ -9,7 +9,9 @@ import scss from "./scss/test.scss";
 }
 
 
-
+/* json配置文件使用 */
+var json = require('../config.json');
+document.getElementById('json').innerHTML = json.sex;
 
 
 
