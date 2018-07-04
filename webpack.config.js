@@ -104,7 +104,7 @@ module.exports = {
         }),
         new extractTextPlugin("css/index.css"),     //这里是存放打包后css文件的地址
         new purifyCSSPlugin({
-            // Give paths to parse for rules. These should be absolute!
+            // Give paths to parsen for rules. These should be absolute!
             paths: glob.sync(path.join(__dirname, 'src/*.html'))
             //purifycss-webpack  插件必须配合 extract-text-webpack-plugin 插件使用
         }),
@@ -120,7 +120,8 @@ module.exports = {
         new copyWebpackPlugin([{       //   ！！！注意：这里的数据先用数组包裹，然后才是对象
             from: __dirname+ '/src/public',
             to: './public'              //   由于出口配置了目录为dist，因此只需要编写后面的地址即可
-        }])
+        }]),
+        new webpack.HotModuleReplacementPlugin()     //整个界面刷新
     ],
     /*optimization: {
         splitChunks: {
